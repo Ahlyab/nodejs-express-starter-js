@@ -17,4 +17,4 @@ env:
 script:
   - yarn lint
   - yarn test
-after_success: yarn coverage:coveralls
+# Coverage is reported via GitHub Actions (see .github/workflows/ci.yml)

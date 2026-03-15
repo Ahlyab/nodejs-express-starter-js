@@ -9,21 +9,29 @@ By running a single command, you will get a production-ready Node.js app install
 
 ## Quick Start
 
-To create a project, simply run:
+To create and initialize a new project in one command:
 
 ```bash
 npx create-nodejs-express-app <project-name>
 ```
 
-Or
+Or:
 
 ```bash
 npm init nodejs-express-app <project-name>
 ```
 
+This will create a new folder with the project name, copy the template, install dependencies (`npm install`), and set up `.env` from `.env.example`. Then:
+
+```bash
+cd <project-name>
+# edit .env if needed
+npm run dev
+```
+
 ## Manual Installation
 
-If you would still prefer to do the installation manually, follow these steps:
+If you prefer to clone and set up manually:
 
 Clone the repo:
 
@@ -36,7 +44,7 @@ npx rimraf ./.git
 Install the dependencies:
 
 ```bash
-yarn install
+npm install
 ```
 
 Set the environment variables:
@@ -72,8 +80,8 @@ cp .env.example .env
 - **Testing**: unit and integration tests using [Jest](https://jestjs.io)
 - **Error handling**: centralized error handling mechanism
 - **API documentation**: with [swagger-jsdoc](https://github.com/Surnet/swagger-jsdoc) and [swagger-ui-express](https://github.com/scottie1984/swagger-ui-express)
-- **Process management**: advanced production process management using [PM2](https://pm2.keymetrics.io)
-- **Dependency management**: with [Yarn](https://yarnpkg.com)
+- **Production start**: run with `node src/index.js` (add a process manager like PM2 or systemd if you need clustering)
+- **Dependency management**: with [npm](https://www.npmjs.com)
 - **Environment variables**: using [dotenv](https://github.com/motdotla/dotenv) and [cross-env](https://github.com/kentcdodds/cross-env#readme)
 - **Security**: set security HTTP headers using [helmet](https://helmetjs.github.io)
 - **Santizing**: sanitize request data against xss and query injection
@@ -81,7 +89,7 @@ cp .env.example .env
 - **Compression**: gzip compression with [compression](https://github.com/expressjs/compression)
 - **CI**: continuous integration with [Travis CI](https://travis-ci.org)
 - **Docker support**
-- **Code coverage**: using [coveralls](https://coveralls.io)
+- **Code coverage**: reported to [Coveralls](https://coveralls.io) via GitHub Actions
 - **Code quality**: with [Codacy](https://www.codacy.com)
 - **Git hooks**: with [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged)
 - **Linting**: with [ESLint](https://eslint.org) and [Prettier](https://prettier.io)
@@ -92,55 +100,55 @@ cp .env.example .env
 Running locally:
 
 ```bash
-yarn dev
+npm run dev
 ```
 
 Running in production:
 
 ```bash
-yarn start
+npm start
 ```
 
 Testing:
 
 ```bash
 # run all tests
-yarn test
+npm test
 
 # run all tests in watch mode
-yarn test:watch
+npm run test:watch
 
 # run test coverage
-yarn coverage
+npm run coverage
 ```
 
 Docker:
 
 ```bash
 # run docker container in development mode
-yarn docker:dev
+npm run docker:dev
 
 # run docker container in production mode
-yarn docker:prod
+npm run docker:prod
 
 # run all tests in a docker container
-yarn docker:test
+npm run docker:test
 ```
 
 Linting:
 
 ```bash
 # run ESLint
-yarn lint
+npm run lint
 
 # fix ESLint errors
-yarn lint:fix
+npm run lint:fix
 
 # run prettier
-yarn prettier
+npm run prettier
 
 # fix prettier errors
-yarn prettier:fix
+npm run prettier:fix
 ```
 
 ## Environment Variables
@@ -333,7 +341,7 @@ In development mode, log messages of all severity levels will be printed to the 
 
 In production mode, only `info`, `warn`, and `error` logs will be printed to the console.\
 It is up to the server (or process manager) to actually read them from the console and store them in log files.\
-This app uses pm2 in production mode, which is already configured to store the logs in log files.
+In production, ensure your process manager or environment captures stdout/stderr (e.g. Docker, systemd, or a logging service) so logs are stored as needed.
 
 Note: API request information (request url, response code, timestamp, etc.) are also automatically logged (using [morgan](https://github.com/expressjs/morgan)).
 
