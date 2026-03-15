@@ -12,7 +12,7 @@ By running a single command, you will get a production-ready Node.js app install
 To create and initialize a new project in one command:
 
 ```bash
-npx create-nodejs-express-app <project-name>
+npx nodejs-express-starter <project-name>
 ```
 
 
