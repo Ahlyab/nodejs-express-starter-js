@@ -1,5 +1,5 @@
 # 1. Check for high/critical vulnerabilities (production deps only; coveralls/pm2 may have no fix)
-npm audit --audit-level=high --production
+npm audit --audit-level=high --omit=dev
 
 # 2. Lint entire codebase
 npm run lint
