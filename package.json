@@ -1,5 +1,5 @@
 {
-  "name": "create-nodejs-express-starter",
+  "name": "nodejs-express-starter",
   "version": "1.7.3",
   "description": "Create a Node.js app for building production-ready RESTful APIs using Express, by running one command",
   "bin": "bin/createNodejsApp.js",
