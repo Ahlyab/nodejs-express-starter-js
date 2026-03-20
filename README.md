@@ -31,7 +31,7 @@ If you prefer to clone and set up manually:
 Clone the repo:
 
 ```bash
-git clone --depth 1 https://github.com/Ahlyab/express-backend-starter-js.git
+git clone --depth 1 https://github.com/Ahlyab/nodejs-express-starter-js.git
 cd express-backend-starter-js
 npx rimraf ./.git
 ```
